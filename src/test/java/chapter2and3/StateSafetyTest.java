@@ -57,7 +57,7 @@ public class StateSafetyTest {
     }
 
     /**
-     * Verify the issue "Other threads can access and modify the contents of the array" has been fixed.
+     * Verify if the issue "Other threads can access and modify the contents of the array" has been fixed.
      *
      * @throws InterruptedException exception
      */
