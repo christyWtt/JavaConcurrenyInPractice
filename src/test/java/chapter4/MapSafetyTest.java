@@ -40,24 +40,4 @@ public class MapSafetyTest {
     private void put10000RandomValues(Map<String, Integer> map) {
         IntStream.range(0,10000).forEach(number -> map.put(UUID.randomUUID().toString(), number));
     }
-
-    private void put10000RandomValues(ImprovedMap<String, Integer> map) {
-        IntStream.range(0,10000).forEach(number -> map.put(UUID.randomUUID().toString(), number));
-    }
-}
-
-class ImprovedMap<K,V> {
-    private final HashMap<K,V> map;
-
-    public ImprovedMap(Map<K, V> map){
-        this.map = new HashMap<>(map);
-    }
-
-    public synchronized void put(K key, V value) {
-        map.put(key, value);
-    }
-
-    public synchronized int size() {
-        return this.map.size();
-    }
 }
