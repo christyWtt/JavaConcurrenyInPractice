@@ -10,7 +10,7 @@ import java.util.Map;
 import java.util.concurrent.*;
 
 public class MapPerformanceTestByJMH {
-    public static final int COUNT = 50000;
+    public static final int COUNT = 100000;
 
     @Fork(value = 2)
     @Benchmark
@@ -47,6 +47,7 @@ public class MapPerformanceTestByJMH {
             pool.submit(() -> {
                 for (int j=0; j<COUNT; j++) {
                     map.put(j, j);
+                    map.get(j);
                 }
                 latch.countDown();
             });

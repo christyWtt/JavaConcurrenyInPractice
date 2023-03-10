@@ -24,21 +24,21 @@ Deadline：3月6日中午12点
 
 ##### 1st time around:
 
-1. Thread number:[10], Insert elements number: [10000], The [synchronizedMap]'s execution time:[2004173761]
-2. Thread number:[10], Insert elements number: [10000], The [concurrentHashMap]'s execution time:[869936449]
-3. Thread number:[10], Insert elements number: [10000], The [improvedMap]'s execution time:[746303678]
+1. Thread number:[10], Insert elements number: [10000], The [synchronizedMap]'s execution time:[89013454]
+2. Thread number:[10], Insert elements number: [10000], The [concurrentHashMap]'s execution time:[107672002]
+3. Thread number:[10], Insert elements number: [10000], The [improvedMap]'s execution time:[28068123]
 
 ##### 2nd time around:
 
-1. Thread number:[10], Insert elements number: [50000], The [synchronizedMap]'s execution time:[3555030832]
-2. Thread number:[10], Insert elements number: [50000], The [concurrentHashMap]'s execution time:[2123428974]
-3. Thread number:[10], Insert elements number: [50000], The [improvedMap]'s execution time:[2186931819]
+1. Thread number:[10], Insert elements number: [50000], The [synchronizedMap]'s execution time:[184427106]
+2. Thread number:[10], Insert elements number: [50000], The [concurrentHashMap]'s execution time:[242584787]
+3. Thread number:[10], Insert elements number: [50000], The [improvedMap]'s execution time:[53475196]
 
 ##### 3rd time around:
 
-1. Thread number:[10], Insert elements number: [100000], The [synchronizedMap]'s execution time:[4689291638]
-2. Thread number:[10], Insert elements number: [100000], The [concurrentHashMap]'s execution time:[3697688260]
-3. Thread number:[10], Insert elements number: [100000], The [improvedMap]'s execution time:[3855817621]
+1. Thread number:[10], Insert elements number: [100000], The [synchronizedMap]'s execution time:[198636921]
+2. Thread number:[10], Insert elements number: [100000], The [concurrentHashMap]'s execution time:[425830746]
+3. Thread number:[10], Insert elements number: [100000], The [improvedMap]'s execution time:[194187151]
 
 
 
@@ -46,24 +46,24 @@ Deadline：3月6日中午12点
 
 ##### Each of the 10 threads inserts 10,000 elements into a map at the same time.
 
-| Benchmark                                     | Mode  | Cnt  | Score   | Error     | Units |
-| --------------------------------------------- | ----- | ---- | ------- | --------- | ----- |
-| MapPerformanceTestByJMH.testConcurrentHashMap | thrpt | 10   | 190.087 | ± 112.032 | ops/s |
-| MapPerformanceTestByJMH.testImprovedMap       | thrpt | 10   | 137.022 | ±  26.556 | ops/s |
-| MapPerformanceTestByJMH.testSynchronizedMap   | thrpt | 10   | 130.179 | ±  14.412 | ops/s |
+| Benchmark                                     | Mode  | Cnt  | Score   | Error    | Units |
+| --------------------------------------------- | ----- | ---- |---------|----------| ----- |
+| MapPerformanceTestByJMH.testConcurrentHashMap | thrpt | 10   | 225.316 | ± 37.813 | ops/s |
+| MapPerformanceTestByJMH.testImprovedMap       | thrpt | 10   | 127.230 | ± 15.126 | ops/s |
+| MapPerformanceTestByJMH.testSynchronizedMap   | thrpt | 10   | 79.882  | ± 2.986  | ops/s |
 
 ##### Each of the 10 threads inserts 50,000 elements into a map at the same time.
 
 | Benchmark                                     | Mode  | Cnt  | Score  | Error   | Units |
-| --------------------------------------------- | ----- | ---- | ------ | ------- | ----- |
-| MapPerformanceTestByJMH.testConcurrentHashMap | thrpt | 10   | 55.453 | ± 7.530 | ops/s |
-| MapPerformanceTestByJMH.testImprovedMap       | thrpt | 10   | 35.170 | ± 5.101 | ops/s |
-| MapPerformanceTestByJMH.testSynchronizedMap   | thrpt | 10   | 35.439 | ± 3.525 | ops/s |
+| --------------------------------------------- | ----- | ---- |--------| ------- | ----- |
+| MapPerformanceTestByJMH.testConcurrentHashMap | thrpt | 10   | 40.698 | ± 4.916 | ops/s |
+| MapPerformanceTestByJMH.testImprovedMap       | thrpt | 10   | 30.730 | ± 3.540 | ops/s |
+| MapPerformanceTestByJMH.testSynchronizedMap   | thrpt | 10   | 23.162 | ± 3.905 | ops/s |
 
 ##### Each of the 10 threads inserts 100,000 elements into a map at the same time.
 
 | Benchmark                                     | Mode  | Cnt  | Score  | Error   | Units |
-| --------------------------------------------- | ----- | ---- | ------ | ------- | ----- |
-| MapPerformanceTestByJMH.testConcurrentHashMap | thrpt | 10   | 28.121 | ± 1.864 | ops/s |
-| MapPerformanceTestByJMH.testImprovedMap       | thrpt | 10   | 20.060 | ± 1.553 | ops/s |
-| MapPerformanceTestByJMH.testSynchronizedMap   | thrpt | 10   | 17.781 | ± 1.634 | ops/s |
+| --------------------------------------------- | ----- | ---- |--------|---------| ----- |
+| MapPerformanceTestByJMH.testConcurrentHashMap | thrpt | 10   | 19.485 | ± 2.425 | ops/s |
+| MapPerformanceTestByJMH.testImprovedMap       | thrpt | 10   | 20.659 | ± 1.553 | ops/s |
+| MapPerformanceTestByJMH.testSynchronizedMap   | thrpt | 10   | 11.234 | ± 0.176 | ops/s |
