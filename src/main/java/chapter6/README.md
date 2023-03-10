@@ -20,38 +20,38 @@ Deadline：3月15日中午12点
 
 ##### 1st time around:
 
-1. Thread number:[10], Insert elements number: [100000], The [synchronizedMap]'s execution time:[137497685]
-2. Thread number:[10], Insert elements number: [100000], The [concurrentHashMap]'s execution time:[420243841]
-3. Thread number:[10], Insert elements number: [100000], The [improvedMap]'s execution time:[73645222]
+1. Thread number:[10], Insert elements number: [100000], The [synchronizedMap]'s execution time:[203347475]
+2. Thread number:[10], Insert elements number: [100000], The [concurrentHashMap]'s execution time:[171440847]
+3. Thread number:[10], Insert elements number: [100000], The [improvedMap]'s execution time:[119546826]
 
 ##### 2nd time around:
 
-1. Thread number:[10], Insert elements number: [1000000], The [synchronizedMap]'s execution time:[1081626892]
-2. Thread number:[10], Insert elements number: [1000000], The [concurrentHashMap]'s execution time:[1198313871]
-3. Thread number:[10], Insert elements number: [1000000], The [improvedMap]'s execution time:[589260058]
+1. Thread number:[10], Insert elements number: [1000000], The [synchronizedMap]'s execution time:[1298834369]
+2. Thread number:[10], Insert elements number: [1000000], The [concurrentHashMap]'s execution time:[661098871]
+3. Thread number:[10], Insert elements number: [1000000], The [improvedMap]'s execution time:[722855685]
 
 ##### 3rd time around:
 
-1. Thread number:[10], Insert elements number: [10000000], The [synchronizedMap]'s execution time:[8965381830]
-2. Thread number:[10], Insert elements number: [10000000], The [concurrentHashMap]'s execution time:[5765383616]
-3. Thread number:[10], Insert elements number: [10000000], The [improvedMap]'s execution time:[9217293556]
+1. Thread number:[10], Insert elements number: [10000000], The [synchronizedMap]'s execution time:[9606519328]
+2. Thread number:[10], Insert elements number: [10000000], The [concurrentHashMap]'s execution time:[7043498117]
+3. Thread number:[10], Insert elements number: [10000000], The [improvedMap]'s execution time:[9859073457]
 
 #### Performance Test Result of MapPerformanceTestByTestHarness.java
 
 ##### 1st time around:
 
-1. Thread number:[10], Insert elements number: [100000], The [synchronizedMap]'s execution time:[199424714]
-2. Thread number:[10], Insert elements number: [100000], The [concurrentHashMap]'s execution time:[176289888]
-3. Thread number:[10], Insert elements number: [100000], The [improvedMap]'s execution time:[132407406]
+1. Thread number:[10], Insert elements number: [100000], The [synchronizedMap]'s execution time:[204776485]
+2. Thread number:[10], Insert elements number: [100000], The [concurrentHashMap]'s execution time:[194734441]
+3. Thread number:[10], Insert elements number: [100000], The [improvedMap]'s execution time:[114288792]
 
 ##### 2nd time around:
 
-1. Thread number:[10], Insert elements number: [1000000], The [synchronizedMap]'s execution time:[1107319219]
-2. Thread number:[10], Insert elements number: [1000000], The [concurrentHashMap]'s execution time:[1133236406]
-3. Thread number:[10], Insert elements number: [1000000], The [improvedMap]'s execution time:[588259503]
+1. Thread number:[10], Insert elements number: [1000000], The [synchronizedMap]'s execution time:[1210934928]
+2. Thread number:[10], Insert elements number: [1000000], The [concurrentHashMap]'s execution time:[4233712530]
+3. Thread number:[10], Insert elements number: [1000000], The [improvedMap]'s execution time:[799863930]
 
 ##### 3rd time around:
 
-1. Thread number:[10], Insert elements number: [10000000], The [synchronizedMap]'s execution time:[9775139596]
-2. Thread number:[10], Insert elements number: [10000000], The [concurrentHashMap]'s execution time:[7350619549]
-3. Thread number:[10], Insert elements number: [10000000], The [improvedMap]'s execution time:[9810450682]
+1. Thread number:[10], Insert elements number: [10000000], The [synchronizedMap]'s execution time:[9632888834]
+2. Thread number:[10], Insert elements number: [10000000], The [concurrentHashMap]'s execution time:[6775976122]
+3. Thread number:[10], Insert elements number: [10000000], The [improvedMap]'s execution time:[8787005643]
