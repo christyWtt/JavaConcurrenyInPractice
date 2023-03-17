@@ -13,31 +13,31 @@ public class ImprovedTestHarnessTimeoutTest {
     @Test
     public void testTimeoutThreadsCanBeCancelled() throws ExecutionException, InterruptedException {
         ImprovedTestHarness improvedTestHarness = new ImprovedTestHarness();
-        Runnable runnableLastTwoSeconds = () -> {
+        Runnable runnableLastTenSeconds = () -> {
             try {
-                Thread.sleep(2000);
+                Thread.sleep(10000);
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
             }
         };
 
-        long duration = improvedTestHarness.timeTasks(2, 1, runnableLastTwoSeconds);
+        long duration = improvedTestHarness.timeTasks(2, 5, runnableLastTenSeconds);
         long durationInSeconds = TimeUnit.SECONDS.convert(duration, TimeUnit.NANOSECONDS);
-        assertEquals(durationInSeconds, 1L);
+        assertEquals(durationInSeconds, 5L);
     }
 
     @Test
     public void testThreadsCanBeFinishedBeforeTimeout() throws InterruptedException, ExecutionException {
         ImprovedTestHarness improvedTestHarness = new ImprovedTestHarness();
-        Runnable runnableLastOneSeconds = () -> {
+        Runnable runnableLastFiveSeconds = () -> {
             try {
-                Thread.sleep(1000);
+                Thread.sleep(5000);
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
             }
         };
 
-        long duration = improvedTestHarness.timeTasks(2, 2, runnableLastOneSeconds);
+        long duration = improvedTestHarness.timeTasks(2, 10000, runnableLastFiveSeconds);
         long durationInSeconds = TimeUnit.SECONDS.convert(duration, TimeUnit.NANOSECONDS);;
         assertNotEquals(durationInSeconds, 2L);
     }
