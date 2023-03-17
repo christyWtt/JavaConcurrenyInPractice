@@ -105,16 +105,16 @@ public class ImprovedTestHarness {
         final ExecutorService executorService = Executors.newSingleThreadExecutor();
         Future<?> submittedJob = executorService.submit(task);
         String currentThreadName = Thread.currentThread().getName();
-        String currentDate = formatter.format(System.currentTimeMillis());
+        String currentTime = formatter.format(System.currentTimeMillis());
 
         try {
             submittedJob.get(timeoutInSeconds, TimeUnit.SECONDS);
         } catch (ExecutionException ignoredException) {
-            System.out.println("Catch ExecutionException on " + currentThreadName + " " + currentDate);
+            System.out.println("Catch ExecutionException on " + currentThreadName + " " + currentTime);
         } catch (InterruptedException ignoredException) {
-            System.out.println("Catch interruptedException on " + currentThreadName + " " + currentDate);
+            System.out.println("Catch interruptedException on " + currentThreadName + " " + currentTime);
         } catch (TimeoutException ignoredException) {
-            System.out.println("Catch timeoutException on " + currentThreadName + " " + currentDate);
+            System.out.println("Catch timeoutException on " + currentThreadName + " " + currentTime);
         } finally {
             submittedJob.cancel(true);
             executorService.shutdown();
