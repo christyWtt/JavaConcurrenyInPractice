@@ -16,6 +16,7 @@ public class MapPerformanceTestByTestHarness {
         final Map<Integer, Integer> improvedMap = new ImprovedMap<>(new HashMap<>());
         TestHarness testHarness = new TestHarness();
 
+        System.out.printf("Test method:[%s]%n", "TestHarness.timeTasks");
         System.out.printf("Thread number:[%d], Insert elements number: [%d], The [%s]'s execution time:[%d]%n", THREAD_NUMBER, MapOperator.COUNT, "synchronizedMap", testHarness.timeTasks(THREAD_NUMBER, new MapOperator(synchronizedMap)));
         System.out.printf("Thread number:[%d], Insert elements number: [%d], The [%s]'s execution time:[%d]%n", THREAD_NUMBER, MapOperator.COUNT, "concurrentHashMap", testHarness.timeTasks(THREAD_NUMBER, new MapOperator(concurrentHashMap)));
         System.out.printf("Thread number:[%d], Insert elements number: [%d], The [%s]'s execution time:[%d]%n", THREAD_NUMBER, MapOperator.COUNT, "improvedMap", testHarness.timeTasks(THREAD_NUMBER, new MapOperator(improvedMap)));

@@ -3,7 +3,7 @@ package chapter5;
 import java.util.Map;
 
 public class MapOperator implements Runnable{
-    public static final int COUNT = 10000000;
+    public static final int COUNT = 1000000;
 
     private final Map<Integer, Integer> map;
 

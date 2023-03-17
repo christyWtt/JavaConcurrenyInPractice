@@ -16,42 +16,18 @@ Deadline：3月15日中午12点
 
 ------
 
-#### Performance Test Result of MapPerformanceTestByImprovedTestHarness.java
+#### Performance Test Result
+##### Test method:[TestHarness.timeTasks]
+1. Thread number:[10], Insert elements number: [1000000], The [synchronizedMap]'s execution time:[2496338457]
+2. Thread number:[10], Insert elements number: [1000000], The [concurrentHashMap]'s execution time:[2430365780]
+3. Thread number:[10], Insert elements number: [1000000], The [improvedMap]'s execution time:[1552848079]
 
-##### 1st time around:
+##### Test method:[ImprovedTestHarness.timeTasks]
+1. Thread number:[10], Insert elements number: [1000000], The [synchronizedMap]'s execution time:[1955551686]
+2. Thread number:[10], Insert elements number: [1000000], The [concurrentHashMap]'s execution time:[1210734760]
+3. Thread number:[10], Insert elements number: [1000000], The [improvedMap]'s execution time:[1332947335]
 
-1. Thread number:[10], Insert elements number: [100000], The [synchronizedMap]'s execution time:[203347475]
-2. Thread number:[10], Insert elements number: [100000], The [concurrentHashMap]'s execution time:[171440847]
-3. Thread number:[10], Insert elements number: [100000], The [improvedMap]'s execution time:[119546826]
-
-##### 2nd time around:
-
-1. Thread number:[10], Insert elements number: [1000000], The [synchronizedMap]'s execution time:[1298834369]
-2. Thread number:[10], Insert elements number: [1000000], The [concurrentHashMap]'s execution time:[661098871]
-3. Thread number:[10], Insert elements number: [1000000], The [improvedMap]'s execution time:[722855685]
-
-##### 3rd time around:
-
-1. Thread number:[10], Insert elements number: [10000000], The [synchronizedMap]'s execution time:[9606519328]
-2. Thread number:[10], Insert elements number: [10000000], The [concurrentHashMap]'s execution time:[7043498117]
-3. Thread number:[10], Insert elements number: [10000000], The [improvedMap]'s execution time:[9859073457]
-
-#### Performance Test Result of MapPerformanceTestByTestHarness.java
-
-##### 1st time around:
-
-1. Thread number:[10], Insert elements number: [100000], The [synchronizedMap]'s execution time:[204776485]
-2. Thread number:[10], Insert elements number: [100000], The [concurrentHashMap]'s execution time:[194734441]
-3. Thread number:[10], Insert elements number: [100000], The [improvedMap]'s execution time:[114288792]
-
-##### 2nd time around:
-
-1. Thread number:[10], Insert elements number: [1000000], The [synchronizedMap]'s execution time:[1210934928]
-2. Thread number:[10], Insert elements number: [1000000], The [concurrentHashMap]'s execution time:[4233712530]
-3. Thread number:[10], Insert elements number: [1000000], The [improvedMap]'s execution time:[799863930]
-
-##### 3rd time around:
-
-1. Thread number:[10], Insert elements number: [10000000], The [synchronizedMap]'s execution time:[9632888834]
-2. Thread number:[10], Insert elements number: [10000000], The [concurrentHashMap]'s execution time:[6775976122]
-3. Thread number:[10], Insert elements number: [10000000], The [improvedMap]'s execution time:[8787005643]
+##### Test method:[ImprovedTestHarness.timeTasksWithFuture]
+1. Thread number:[10], Insert elements number: [1000000], The [synchronizedMap]'s execution time:[1218751314]
+2. Thread number:[10], Insert elements number: [1000000], The [concurrentHashMap]'s execution time:[768958005]
+3. Thread number:[10], Insert elements number: [1000000], The [improvedMap]'s execution time:[1323613359]
