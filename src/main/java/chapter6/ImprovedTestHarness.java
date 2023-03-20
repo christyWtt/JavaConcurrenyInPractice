@@ -1,10 +1,11 @@
 package chapter6;
 
-import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.concurrent.*;
 
 public class ImprovedTestHarness {
-    public static final SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
+    private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
     public long timeTasks(int nThreads, final Runnable task) throws InterruptedException, BrokenBarrierException {
         final CyclicBarrier startGate = new CyclicBarrier(nThreads + 1);
@@ -84,9 +85,9 @@ public class ImprovedTestHarness {
                 executorService.submit(() -> {
                     try {
                         startBarrier.await();
-                        System.out.println("Job is ready to run on " + Thread.currentThread().getName() + " " + formatter.format(System.currentTimeMillis()));
+                        System.out.println("Job is ready to run on " + Thread.currentThread().getName() + " " + formatter.format(LocalDateTime.now()));
                         timedRun(task, timeoutInSeconds);
-                        System.out.println("Job runs on " + Thread.currentThread().getName() + " is finished at " + formatter.format(System.currentTimeMillis()));
+                        System.out.println("Job runs on " + Thread.currentThread().getName() + " is finished at " + formatter.format(LocalDateTime.now()));
                         endBarrier.await();
                     } catch (BrokenBarrierException | InterruptedException ignoredException) {
                     }
@@ -105,7 +106,7 @@ public class ImprovedTestHarness {
         final ExecutorService executorService = Executors.newSingleThreadExecutor();
         Future<?> submittedJob = executorService.submit(task);
         String currentThreadName = Thread.currentThread().getName();
-        String currentTime = formatter.format(System.currentTimeMillis());
+        String currentTime = formatter.format(LocalDateTime.now());
 
         try {
             submittedJob.get(timeoutInSeconds, TimeUnit.SECONDS);
@@ -121,3 +122,4 @@ public class ImprovedTestHarness {
         }
     }
 }
+
