@@ -101,6 +101,16 @@ public class ImprovedTestHarness {
         }
     }
 
+    public long timeTasks(int nThreads, int timeoutInSeconds, final Runnable task) throws ExecutionException, InterruptedException {
+        final ExecutorService executorService = Executors.newFixedThreadPool(nThreads);
+        return timeTasks(nThreads, timeoutInSeconds, task, executorService);
+    }
+
+    public long timeTasks(int nThreads, int timeoutInSeconds, final Runnable task, boolean shouldStartAllCoreThreads) throws ExecutionException, InterruptedException {
+        ExecutorService executorService = new TimingThreadPool(nThreads, shouldStartAllCoreThreads);
+        return timeTasks(nThreads, timeoutInSeconds, task, executorService);
+    }
+
     private void timedRun(final Runnable task, int timeoutInSeconds) {
 
         final ExecutorService executorService = Executors.newSingleThreadExecutor();
