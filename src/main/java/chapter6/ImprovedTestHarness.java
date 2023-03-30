@@ -1,5 +1,7 @@
 package chapter6;
 
+import chapter8.TimingThreadPool;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.concurrent.*;
@@ -32,7 +34,7 @@ public class ImprovedTestHarness {
 
             endGate.await();
             long end = System.nanoTime();
-            return end-start;
+            return end - start;
         } finally {
             executorService.shutdown();
         }
@@ -69,9 +71,7 @@ public class ImprovedTestHarness {
         }
     }
 
-    public long timeTasks(int nThreads, int timeoutInSeconds, final Runnable task) throws ExecutionException, InterruptedException {
-        final ExecutorService executorService = Executors.newFixedThreadPool(nThreads);
-
+    public long timeTasks(int nThreads, int timeoutInSeconds, final Runnable task, final ExecutorService executorService) throws ExecutionException, InterruptedException {
         Callable<Long> getNanoTime = System::nanoTime;
 
         try {
@@ -85,9 +85,9 @@ public class ImprovedTestHarness {
                 executorService.submit(() -> {
                     try {
                         startBarrier.await();
-                        System.out.println("Job is ready to run on " + Thread.currentThread().getName() + " " + formatter.format(LocalDateTime.now()));
+                        //System.out.println("Job is ready to run on " + Thread.currentThread().getName() + " " + formatter.format(LocalDateTime.now()));
                         timedRun(task, timeoutInSeconds);
-                        System.out.println("Job runs on " + Thread.currentThread().getName() + " is finished at " + formatter.format(LocalDateTime.now()));
+                        //System.out.println("Job runs on " + Thread.currentThread().getName() + " is finished at " + formatter.format(LocalDateTime.now()));
                         endBarrier.await();
                     } catch (BrokenBarrierException | InterruptedException ignoredException) {
                     }

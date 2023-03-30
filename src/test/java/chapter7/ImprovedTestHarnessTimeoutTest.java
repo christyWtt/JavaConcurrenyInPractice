@@ -1,6 +1,7 @@
 package chapter7;
 
 import chapter6.ImprovedTestHarness;
+import chapter6.NeverDieTask;
 import org.junit.jupiter.api.Test;
 
 import java.util.concurrent.ExecutionException;
@@ -38,6 +39,18 @@ public class ImprovedTestHarnessTimeoutTest {
         };
 
         long duration = improvedTestHarness.timeTasks(2, 10000, runnableLastFiveSeconds);
+        long durationInSeconds = TimeUnit.SECONDS.convert(duration, TimeUnit.NANOSECONDS);;
+        assertNotEquals(durationInSeconds, 2L);
+    }
+
+
+
+    @Test
+    public void testNeverDieTask() throws InterruptedException, ExecutionException {
+        ImprovedTestHarness improvedTestHarness = new ImprovedTestHarness();
+
+        NeverDieTask task= new NeverDieTask();
+        long duration = improvedTestHarness.timeTasks(2, 2, task);
         long durationInSeconds = TimeUnit.SECONDS.convert(duration, TimeUnit.NANOSECONDS);;
         assertNotEquals(durationInSeconds, 2L);
     }
