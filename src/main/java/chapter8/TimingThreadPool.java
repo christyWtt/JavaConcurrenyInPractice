@@ -7,10 +7,10 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.logging.Logger;
 
 public class TimingThreadPool extends ThreadPoolExecutor {
-    private final ThreadLocal<Long> startTime = new ThreadLocal<Long>();
-    private final Logger log = Logger.getLogger("TimingThreadPool");
-    private final AtomicLong numberTasks = new AtomicLong();
-    private final AtomicLong totalTime = new AtomicLong();
+    private static final ThreadLocal<Long> startTime = new ThreadLocal<>();
+    private static final Logger log = Logger.getLogger("TimingThreadPool");
+    private static final AtomicLong numberTasks = new AtomicLong();
+    private static final AtomicLong totalTime = new AtomicLong();
 
     public TimingThreadPool(int corePoolSize, boolean shouldStartAllCoreThreads) {
         super(corePoolSize, corePoolSize, 0, TimeUnit.MILLISECONDS, new LinkedBlockingQueue<>());
