@@ -24,13 +24,13 @@ Deadline：4月13日中午12点
 #### Console Output
 ![Console Output](consoleOutput.png)
 
-#### Thread Dumps
+#### Thread Dumps -> kill -3 pid
 ![Thread Dump](threadDump.png)
 
-#### Jstack
+#### Jstack -> jstack -l pid > jstack.out
 We can find the whole jstack info in the jstack.out file.
 ![Jstack](jstack.png)
 
-#### Jconsole
+#### Jconsole -> ./jconsole
 ![Jconsole for Thread 0](jconsoleThread0.png)
 ![Jconsole for Thread 1](jconsoleThread1.png)
