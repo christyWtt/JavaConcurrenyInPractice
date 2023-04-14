@@ -4,9 +4,9 @@
 
 - 读完 Chapter 11(page 261)
 - 代码实验
-    - 阅读下面的代码
-    - 写一段测试代码，测试其在并发环境下的性能
-    - 改进这段代码的性能，并和基准性能比较
+  - 阅读下面的代码
+  - 写一段测试代码，测试其在并发环境下的性能
+  - 改进这段代码的性能，并和基准性能比较
 ```java
 interface Grocery {  
     void addFruit(int index, String fruit);  
