@@ -32,3 +32,15 @@ Deadline：4月25日中午12点
 指出前三名明显缺陷的同学可以抢得🏅️
 
 ------
+
+#### Performance Test Result of GroceryPerformanceTestByJMH.java
+
+##### Each of the 10 threads inserts 10,000 elements into lists at the same time.
+
+| Benchmark                                                     | Mode  | Cnt  | Score  | Error    | Units |
+|---------------------------------------------------------------| ----- | ---- |--------|----------| ----- |
+| GroceryPerformanceTestByJMH.testSingleLockGrocery             | thrpt | 25   | 0.284  | ± 0.016  | ops/s |
+| GroceryPerformanceTestByJMH.testSynchronizedGrocery           | thrpt | 25   | 0.263  | ± 0.013  | ops/s |
+| GroceryPerformanceTestByJMH.testSynchronizedCollectionGrocery | thrpt | 25   | 0.219  | ± 0.014  | ops/s |
+| GroceryPerformanceTestByJMH.testVectorGrocery                 | thrpt | 25   | 0.202  | ± 0.011  | ops/s |
+| GroceryPerformanceTestByJMH.testCopyOnWriteGrocery            | thrpt | 25   | 0.106  | ± 0.004  | ops/s |
