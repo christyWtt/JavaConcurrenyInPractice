@@ -10,10 +10,14 @@ repositories {
 }
 
 dependencies {
+    implementation 'junit:junit:3.8.2'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.2'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.2'
     implementation 'org.openjdk.jmh:jmh-core:1.36'
     annotationProcessor 'org.openjdk.jmh:jmh-generator-annprocess:1.36'
+    testImplementation(group: 'junit', name: 'junit', version: "4.13.2") {
+        exclude group: 'org.hamcrest', module: 'hamcrest-core'
+    }
 }
 
 test {
