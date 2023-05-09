@@ -19,12 +19,7 @@ public class GroceryJSR166Test extends JSR166TestCase {
         ExecutorService executorService = Executors.newFixedThreadPool(N_THREADS);
         SynchronizedGrocery synchronizedGrocery = new SynchronizedGrocery();
 
-        for (int i = 0; i < N_THREADS; i++) {
-            executorService.submit(() -> {
-                checkedBarrier.await();
-                performGroceryTest(synchronizedGrocery);
-            });
-        }
+        performGroceryTest(synchronizedGrocery, executorService, checkedBarrier);
         joinPool(executorService);
 
         threadAssertEquals(EXECUTE_TIMES * N_THREADS, getGroceryFieldSize(synchronizedGrocery, FRUITS_FILED));
@@ -36,12 +31,7 @@ public class GroceryJSR166Test extends JSR166TestCase {
         ExecutorService executorService = Executors.newFixedThreadPool(N_THREADS);
         SynchronizedCollectionGrocery synchronizedCollectionGrocery = new SynchronizedCollectionGrocery();
 
-        for (int i = 0; i < N_THREADS; i++) {
-            executorService.submit(() -> {
-                checkedBarrier.await();
-                performGroceryTest(synchronizedCollectionGrocery);
-            });
-        }
+        performGroceryTest(synchronizedCollectionGrocery, executorService, checkedBarrier);
         joinPool(executorService);
 
         threadAssertEquals(EXECUTE_TIMES * N_THREADS, getGroceryFieldSize(synchronizedCollectionGrocery, FRUITS_FILED));
@@ -53,12 +43,7 @@ public class GroceryJSR166Test extends JSR166TestCase {
         ExecutorService executorService = Executors.newFixedThreadPool(N_THREADS);
         SingleLockGrocery singleLockGrocery = new SingleLockGrocery();
 
-        for (int i = 0; i < N_THREADS; i++) {
-            executorService.submit(() -> {
-                checkedBarrier.await();
-                performGroceryTest(singleLockGrocery);
-            });
-        }
+        performGroceryTest(singleLockGrocery, executorService, checkedBarrier);
         joinPool(executorService);
 
         threadAssertEquals(EXECUTE_TIMES * N_THREADS, getGroceryFieldSize(singleLockGrocery, FRUITS_FILED));
@@ -70,12 +55,7 @@ public class GroceryJSR166Test extends JSR166TestCase {
         ExecutorService executorService = Executors.newFixedThreadPool(N_THREADS);
         CopyOnWriteGrocery copyOnWriteGrocery = new CopyOnWriteGrocery();
 
-        for (int i = 0; i < N_THREADS; i++) {
-            executorService.submit(() -> {
-                checkedBarrier.await();
-                performGroceryTest(copyOnWriteGrocery);
-            });
-        }
+        performGroceryTest(copyOnWriteGrocery, executorService, checkedBarrier);
         joinPool(executorService);
 
         threadAssertEquals(EXECUTE_TIMES * N_THREADS, getGroceryFieldSize(copyOnWriteGrocery, FRUITS_FILED));
@@ -87,22 +67,22 @@ public class GroceryJSR166Test extends JSR166TestCase {
         ExecutorService executorService = Executors.newFixedThreadPool(N_THREADS);
         VectorGrocery vectorGrocery = new VectorGrocery();
 
-        for (int i = 0; i < N_THREADS; i++) {
-            executorService.submit(() -> {
-                checkedBarrier.await();
-                performGroceryTest(vectorGrocery);
-            });
-        }
+        performGroceryTest(vectorGrocery, executorService, checkedBarrier);
         joinPool(executorService);
 
         threadAssertEquals(EXECUTE_TIMES * N_THREADS, getGroceryFieldSize(vectorGrocery, FRUITS_FILED));
         threadAssertEquals(EXECUTE_TIMES * N_THREADS, getGroceryFieldSize(vectorGrocery, VEGETABLES_FILED));
     }
 
-    private void performGroceryTest(Grocery grocery) {
-        for (int i = 0; i < EXECUTE_TIMES; i++) {
-            grocery.addFruit(i, String.valueOf(i));
-            grocery.addVegetable(i, String.valueOf(i));
+    private void performGroceryTest(Grocery grocery, ExecutorService executorService, CheckedBarrier checkedBarrier) {
+        for (int i = 0; i < N_THREADS; i++) {
+            executorService.submit(() -> {
+                checkedBarrier.await();
+                for (int j = 0; j < EXECUTE_TIMES; j++) {
+                    grocery.addFruit(j, String.valueOf(j));
+                    grocery.addVegetable(j, String.valueOf(j));
+                }
+            });
         }
     }
 
