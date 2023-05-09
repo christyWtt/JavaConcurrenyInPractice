@@ -15,38 +15,23 @@
 
 package chapter12;
 
-import static java.util.concurrent.TimeUnit.MILLISECONDS;
-import static java.util.concurrent.TimeUnit.NANOSECONDS;
+import junit.framework.AssertionFailedError;
+import junit.framework.TestCase;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.security.CodeSource;
-import java.security.Permission;
-import java.security.PermissionCollection;
-import java.security.Permissions;
-import java.security.Policy;
-import java.security.ProtectionDomain;
-import java.security.SecurityPermission;
+import java.security.*;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.NoSuchElementException;
 import java.util.PropertyPermission;
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.Callable;
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.CyclicBarrier;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Future;
-import java.util.concurrent.RejectedExecutionHandler;
-import java.util.concurrent.Semaphore;
-import java.util.concurrent.ThreadFactory;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeoutException;
+import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicReference;
-import junit.framework.AssertionFailedError;
-import junit.framework.TestCase;
+
+import static java.util.concurrent.TimeUnit.MILLISECONDS;
+import static java.util.concurrent.TimeUnit.NANOSECONDS;
 
 /**
  * Base class for JSR166 Junit TCK tests. Defines some constants, utility methods and classes, as
@@ -590,7 +575,7 @@ abstract class JSR166TestCase extends TestCase {
     }
 
     /** A security policy where new permissions can be dynamically added or all cleared. */
-    public static class AdjustablePolicy extends java.security.Policy {
+    public static class AdjustablePolicy extends Policy {
         Permissions perms = new Permissions();
 
         AdjustablePolicy(Permission... permissions) {
