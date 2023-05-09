@@ -27,5 +27,5 @@ Deadline：5月10日中午12点
 | GroceryPerformanceTestByJMH.testVectorGrocery                 | thrpt | 25   | 0.202  | ± 0.011  | ops/s |
 | GroceryPerformanceTestByJMH.testCopyOnWriteGrocery            | thrpt | 25   | 0.106  | ± 0.004  | ops/s |
 
-#### Correctness Test Result of GroceryJSR166Test.java in chapter11
+#### Correctness Test Result of GroceryJSR166Test.java in chapter12
 ![Test Result of JSR166TestCase](JSR166TestResult.JPG)
